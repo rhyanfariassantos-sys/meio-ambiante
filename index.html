@@ -14,7 +14,7 @@
         }
 
         body {
-            background-color: #f7f5f0; /* Tom de areia claro */
+            background-color: #fcfbfa; /* Tom de areia ainda mais suave e limpo */
             color: #333;
             line-height: 1.6;
         }
@@ -25,33 +25,77 @@
             margin: 0 auto;
         }
 
+        /* Menu de Navegação Superior */
+        nav {
+            background-color: #264653;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            color: #f4a261;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #f7f5f0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e9c46a;
+        }
+
         /* Cabeçalho com imagem de fundo da savana */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.45)), 
                         url('https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1200') no-repeat center center/cover;
             color: white;
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #f4a261; /* Laranja Savana */
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-style: italic;
             color: #e9c46a;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Layout em duas colunas (Flexbox) */
         .main-content {
             display: flex;
-            margin-top: 30px;
+            margin-top: 40px;
             gap: 30px;
         }
 
@@ -62,59 +106,96 @@
 
         .post {
             background-color: #fff;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .post:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .category-tag {
+            background-color: #e76f51;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
         .post h2 {
             color: #264653;
             margin-bottom: 10px;
+            font-size: 1.8rem;
         }
 
         .post .date {
-            display: block;
             font-size: 0.85rem;
             color: #888;
-            margin-bottom: 15px;
         }
 
         .post p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            color: #555;
         }
 
         .post .read-more {
             display: inline-block;
-            color: #e76f51;
+            background-color: #2a9d8f;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
         }
 
         .post .read-more:hover {
-            text-decoration: underline;
+            background-color: #264653;
         }
 
         /* Barra Lateral (Sidebar) */
         .sidebar {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
             background-color: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            height: fit-content;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
         }
 
         .sidebar h3 {
             color: #264653;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #f4a261;
-            padding-bottom: 5px;
+            margin-bottom: 18px;
+            border-bottom: 3px solid #f4a261;
+            padding-bottom: 8px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .sidebar p {
             font-size: 0.95rem;
             margin-bottom: 20px;
+            color: #666;
         }
 
         .sidebar ul {
@@ -122,27 +203,65 @@
         }
 
         .sidebar ul li {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 10px;
+        }
+
+        .sidebar ul li:last-child {
+            border: none;
+            padding-bottom: 0;
         }
 
         .sidebar ul li a {
             color: #2a9d8f;
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.2s ease;
         }
 
         .sidebar ul li a:hover {
             color: #e76f51;
         }
 
+        /* Formulário de Newsletter na Sidebar */
+        .newsletter-form input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            width: 100%;
+            background-color: #f4a261;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #e76f51;
+        }
+
         /* Rodapé */
         footer {
             background-color: #264653;
-            color: white;
+            color: #f7f5f0;
             text-align: center;
-            padding: 25px 0;
-            margin-top: 50px;
+            padding: 35px 0;
+            margin-top: 60px;
             font-size: 0.9rem;
+        }
+
+        footer p {
+            opacity: 0.8;
         }
 
         /* Adaptação automática para telas de celular */
@@ -150,16 +269,93 @@
             .main-content {
                 flex-direction: column;
             }
+            header h1 {
+                font-size: 2.5rem;
+            }
+            .post {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">🐾 EcoSavana</a>
+            <ul class="nav-links">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Artigos</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <header>
         <div class="container">
             <h1>EcoSavana</h1>
-            <p>A vida selvagem e a beleza do coração da África</p>
+            <p>Explorando a biodiversidade, mistérios e a conservação do coração do continente africano.</p>
         </div>
     </header>
 
     <div class="container main-content">
+        
+        <main class="posts">
+            <article class="post">
+                <div class="post-meta">
+                    <span class="category-tag">Felinos</span>
+                    <span class="date">Postado em 12 de Maio, 2026</span>
+                </div>
+                <h2>A Jornada dos Grandes Felinos na Reserva Serengeti</h2>
+                <p>Acompanhe de perto os hábitos de caça, dinâmicas familiares e os desafios de sobrevivência que leões, leopardos e gueardos enfrentam durante os períodos de grande migração anual.</p>
+                <a href="#" class="read-more">Ler Artigo Completo</a>
+            </article>
+
+            <article class="post">
+                <div class="post-meta">
+                    <span class="category-tag">Preservação</span>
+                    <span class="date">Postado em 05 de Maio, 2026</span>
+                </div>
+                <h2>Projetos de Conservação: Protegendo os Elefantes Africanos</h2>
+                <p>Descubra como novas tecnologias de rastreamento via satélite e o apoio das comunidades locais estão diminuindo drasticamente as taxas de caça ilegal nas savanas.</p>
+                <a href="#" class="read-more">Ler Artigo Completo</a>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>Sobre o Blog</h3>
+                <p>Bem-vindo ao EcoSavana! Nosso objetivo é trazer histórias fascinantes sobre a vida selvagem, fotografia de natureza e as principais iniciativas de conservação ambiental ao redor do mundo.</p>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Mais Lidos</h3>
+                <ul>
+                    <li><a href="#">O mistério da migração dos gnus</a></li>
+                    <li><a href="#">As aves mais exóticas da savana</a></li>
+                    <li><a href="#">Guia completo de fotografia de safári</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Newsletter</h3>
+                <p>Receba nossos melhores artigos diretamente no seu e-mail semanalmente.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Inscrito com sucesso!');">
+                    <input type="email" placeholder="Seu melhor e-mail" required>
+                    <button type="submit">Inscrever-se</button>
+                </form>
+            </div>
+        </aside>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 EcoSavana. Todos os direitos reservados.</p>
+            <p style="font-size: 0.8rem; margin-top: 5px;">Criado com paixão pela vida selvagem.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
